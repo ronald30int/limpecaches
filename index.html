@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limpeza de Cache</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #progressBar {
+        width: 100%;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        margin: 20px auto;
+    }
+    #progress {
+        width: 0%;
+        height: 30px;
+        background-color: #4caf50;
+    }
+</style>
+</head>
+<body>
+    <h2>Limpeza de Cache</h2>
+    <img src="icon.png" alt="Lixeira" width="100">
+    <br><br>
+    <button onclick="limparCache()">Limpar Cache</button>
+    <br><br>
+    <div id="progressBar">
+        <div id="progress"></div>
+    </div>
+Regulamento todos dias limpe os caches lixos Eletrônico dos seus celulares deixando com desempenho rapido tire praint e enviem para ronald28int@gmail.com ganhe 0,10 centavo por dia sua chave pix deve ser o email esta enviado.
+    <script>
+        function limparCache() {
+            var progressBar = document.getElementById("progress");
+            var width = 1;
+            var interval = setInterval(frame, 10);
+
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    alert("Cache limpo com sucesso!                                   Tire praint agora antes de fechar");
+                } else {
+                    width++;
+                    progressBar.style.width = width + "%";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
