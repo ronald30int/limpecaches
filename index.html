@@ -41,7 +41,9 @@ Regulamento todos dias limpe os caches lixos Eletrônico dos seus celulares deix
             function frame() {
                 if (width >= 100) {
                     clearInterval(interval);
-                    alert("Cache limpo com sucesso!                                   Tire praint agora antes de fechar");
+                    alert("Cache limpo com sucesso!");
+                    localStorage.setItem('lastCacheClear', new Date().toISOString().split('T')[0]);
+                    document.getElementById("limparCacheBtn").disabled = true;
                     window.location.href = "https://seulink.digital/f5SPg";
                 } else {
                     width++;
