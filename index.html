@@ -49,6 +49,13 @@ Regulamento todos dias limpe os caches lixos Eletrônico dos seus celulares deix
                 }
             }
         }
+        window.onload = function() {
+            var lastCacheClear = localStorage.getItem('lastCacheClear');
+            var today = new Date().toISOString().split('T')[0];
+            if (lastCacheClear === today) {
+                document.getElementById("limparCacheBtn").disabled = true;
+            }
+        };
     </script>
 </body>
 </html>
