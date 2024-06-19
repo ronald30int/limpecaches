@@ -26,7 +26,7 @@
     <h2>Limpeza de Cache</h2>
     <img src="icon.png" alt="Lixeira" width="100">
     <br><br>
-    <button  id="limparCacheBtn"    onclick="limparCache()">Limpar Cache</button>
+    <button onclick="limparCache()">Limpar Cache</button>
     <br><br>
     <div id="progressBar">
         <div id="progress"></div>
@@ -41,9 +41,7 @@ Regulamento todos dias limpe os caches lixos Eletrônico dos seus celulares deix
             function frame() {
                 if (width >= 100) {
                     clearInterval(interval);
-                    alert("Cache limpo com sucesso!                   tire um print antes de fechar");
-                    localStorage.setItem('lastCacheClear', new Date().toISOString().split('T')[0]);
-                    document.getElementById("limparCacheBtn").disabled = true;
+                    alert("Cache limpo com sucesso!                   tire um print antes de fechar);
                     window.location.href = "https://seulink.digital/f5SPg";
                 } else {
                     width++;
@@ -51,13 +49,6 @@ Regulamento todos dias limpe os caches lixos Eletrônico dos seus celulares deix
                 }
             }
         }
-        window.onload = function() {
-            var lastCacheClear = localStorage.getItem('lastCacheClear');
-            var today = new Date().toISOString().split('T')[0];
-            if (lastCacheClear === today) {
-                document.getElementById("limparCacheBtn").disabled = true;
-            }
-        };
     </script>
 </body>
 </html>
