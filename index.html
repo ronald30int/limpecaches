@@ -1,52 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Limpeza de Cache</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-    }
-    #progressBar {
-        width: 100%;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        margin: 20px auto;
-    }
-    #progress {
-        width: 0%;
-        height: 30px;
-        background-color: #4caf50;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Mobile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        .like-button {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/1/13/Facebook_like_thumb.png') no-repeat center center;
+            background-size: contain;
+            width: 100px;
+            height: 100px;
+            border: none;
+            cursor: pointer;
+        }
+        .share-link {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .receipt {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <h2>Limpeza de Cache</h2>
-    <img src="icon.png" alt="Lixeira" width="100">
-    <br><br>
-    <button onclick="limparCache()">Limpar Cache</button>
-    <br><br>
-    <div id="progressBar">
-        <div id="progress"></div>
+    <div class="container">
+        <button class="like-button" onclick="generateReceipt()"></button>
+        <a href="#" class="share-link" onclick="shareContent()">Compartilhar</a>
+        <div class="receipt" id="receipt"></div>
     </div>
-Regulamento todos dias limpe os caches lixos Eletr么nico dos seus celulares deixando com desempenho rapido tire praint e enviem para ronald28int@gmail.com ganhe 0,01 centavo por dia sua chave pix deve ser o email esta enviado lembre-se voce precisa compartilhar bater meta +1400 pessoas deve ser a partir desse link por quer ele que pagar https://seulink.digital/f5SPg
-    <script>
-        function limparCache() {
-            var progressBar = document.getElementById("progress");
-            var width = 1;
-            var interval = setInterval(frame, 10);
 
-            function frame() {
-                if (width >= 100) {
-                    clearInterval(interval);
-                    alert("Cache limpo com sucesso!                                  Tire praint agora antes de fechar");
-                    window.location.href = "https://seulink.digital/f5SPg";
-                } else {
-                    width++;
-                    progressBar.style.width = width + "%";
-                }
+    <script>
+        function generateReceipt() {
+            const receiptDiv = document.getElementById('receipt');
+            const now = new Date();
+            const dateTimeString = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+            receiptDiv.textContent = `Comprovante gerado em: ${dateTimeString}`;
+        }
+
+        function shareContent() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+            const shareData = {
+                title: 'Vamos nos conectar a Palavra de Deus juntos! Adicione-me como Amigo no App da Biblia da YouVersion.',
+                text: `Comprovante gerado em: ${dateTimeString}Somos a primeira igreja on-line a pagar 1% por dia apenas por visualizar o link que disponibilizei na descricao do perfil, apenas para quem esta na minha comunidade.`,
+                url: 'https://bible.com/users/RonaldRony406'
+            };
+            try {
+                navigator.share(shareData)
+                    .then(() => console.log('Conteúdo compartilhado com sucesso!'))
+                    .catch((error) => console.error('Erro ao compartilhar:', error));
+            } catch (error) {
+                alert('O compartilhamento não é suportado neste navegador.');
             }
         }
     </script>
